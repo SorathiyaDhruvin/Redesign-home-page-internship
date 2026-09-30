@@ -15,9 +15,9 @@ const TechFocus = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { title: "3D Animation", desc: "Cling Logo animation" },
-            { title: "3D Animation", desc: "Advertisement video" },
-            { title: "AI", desc: "The Surveillance Model identifies suspicious activity in the video" }
+            { title: "3D Animation", desc: "Cling Logo animation", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800&h=450" },
+            { title: "3D Animation", desc: "Advertisement video", image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800&h=450" },
+            { title: "AI", desc: "The Surveillance Model identifies suspicious activity in the video", image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&q=80&w=800&h=450" }
           ].map((item, index) => (
             <motion.div
               key={index}
@@ -29,7 +29,7 @@ const TechFocus = () => {
             >
               <div className="relative w-full aspect-video rounded-3xl overflow-hidden mb-6 bg-brand-light">
                 {/* Abstract thumbnail background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-navy to-blue-900 group-hover:scale-105 transition-transform duration-700" />
+                <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
                 
                 {/* Play Button */}
