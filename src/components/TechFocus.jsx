@@ -15,9 +15,9 @@ const TechFocus = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { title: "3D Animation", desc: "Cling Logo animation", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800&h=450" },
-            { title: "3D Animation", desc: "Advertisement video", image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800&h=450" },
-            { title: "AI", desc: "The Surveillance Model identifies suspicious activity in the video", image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&q=80&w=800&h=450" }
+            { title: "3D Animation", desc: "Cling Logo animation", video: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_1MB.mp4", poster: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800&h=450" },
+            { title: "3D Animation", desc: "Advertisement video", video: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4", poster: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800&h=450" },
+            { title: "AI", desc: "The Surveillance Model identifies suspicious activity in the video", video: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4", poster: "https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&q=80&w=800&h=450" }
           ].map((item, index) => (
             <motion.div
               key={index}
@@ -27,17 +27,15 @@ const TechFocus = () => {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="group cursor-pointer"
             >
-              <div className="relative w-full aspect-video rounded-3xl overflow-hidden mb-6 bg-brand-light">
-                {/* Abstract thumbnail background */}
-                <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
-                
-                {/* Play Button */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 group-hover:bg-white group-hover:text-brand-red text-white transition-all duration-300 shadow-xl">
-                    <Play className="w-6 h-6 ml-1" fill="currentColor" />
-                  </div>
-                </div>
+              <div className="relative w-full aspect-video rounded-3xl overflow-hidden mb-6 bg-brand-light group-hover:shadow-xl transition-all duration-300">
+                <video 
+                  controls 
+                  poster={item.poster}
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src={item.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
               
               <h3 className="text-xl font-bold text-brand-navy mb-2">{item.title}</h3>
